@@ -1,1 +1,1 @@
-export const baseUrl = 'http://localhost:8080/TestsUserManagement/controller/';
+export const baseUrl = 'http://localhost:8080/';

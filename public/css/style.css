@@ -1,4 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #F7F5FF;
+    overflow-y: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+i {
+    cursor: pointer;
+}
+
 /** HEADER **/
+
+header {
+    position: fixed;
+    top: 0;
+    height: 125px;
+}
 
 /* Navbar */
 nav {
@@ -7,16 +36,12 @@ nav {
     justify-items: stretch;
     align-items: stretch;
     background-color: #169FED;
-    position: fixed;
-    top: 0;
-    left: 0;
     height: 100px;
     width: 100vw;
 }
 
 .logo {
-    width: 100%;
-    height: auto;
+    width: 150px;
 }
 
 .connectedUser {
@@ -27,6 +52,7 @@ nav {
     align-items: start;
     padding: 10px;
     column-gap: 10px;
+    width: 500px;
 }
 
 .shortcutMenu {
@@ -64,14 +90,16 @@ i {
 }
 
 .kiosksManagement .logo {
+    height: 90%;
+    padding: 5% 0;
     width: auto;
-    height: 100%;
 }
 
 .nav-text {
     color: white;
     margin-block-start: 0px;
     margin-block-end: 5px;
+    margin-bottom: 2px;
 }
 
 .userName {
@@ -97,14 +125,9 @@ i {
 
 /* Breadcrumb */
 .breadcrumb {
-    display: grid;
-    grid-template: 25px / 1fr 2fr 1fr 3fr 100vw;
+    display: flex;
     background: #4D4848;
-    justify-items: center;
     align-items: center;
-    position: fixed;
-    top : 100px;
-    left: 0;
     height: 25px;
     width: 100vw;
 }
@@ -118,36 +141,24 @@ i {
 
 
 /** MENU **/
-
 .menu {
-    display: grid;
-    /*grid-template-rows: 50px repeat(10, 40px) 50px 100vh;*/
-    grid-template-rows: 1fr repeat(10, 0.9fr) 1fr 100vh;
-    grid-template-columns: 50px;
-    justify-items: start;
-    align-items: start;
     position: fixed;
     top: 125px;
-    left: 0;
-    height: 100vh;
+    left: 0px;
     width: 50px;
+    background: #4D4848;
+    height: 100vh;
 }
 
 .menu ul {
-    display: grid;
-    grid-template-rows: 50px repeat(10, 40px) 50px 100vh;
-    grid-template-columns: 50px;
-    padding-inline-start: 0px;
-    margin-block-start: 0px;
-    justify-items: center;
-    align-items: center;
-    background: #4D4848;
-    row-gap: 2px;
+    margin-top: 0;
+    padding: 0;
 }
 
 .menu li {
     list-style: none;
     padding: 10px 17px;
+    margin: 1px 0;
     background-color: #70708D;
 }
 
@@ -169,7 +180,8 @@ i {
 
 .menu .sign-out {
     background: #4D4848;
-    margin-bottom: 450px;
+    position: absolute;
+    bottom: 5px;
 }
 
 /** END MENU **/
@@ -180,47 +192,38 @@ i {
 /* Background */
 .background {
     background-color: #F7F5FF;
-    position: fixed;
-    top: 125px;
-    left: 50px;
+    margin: 150px 50px 0 100px;
     height: 100vh;
-    width: 100vw;
 }
 /* End Background */
 
 /* Add user */
 .background .addUser {
+    margin-bottom: 20px;
+    margin-right: 50px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.background .addUser i {
     border: 1px solid #169FED;
     border-radius: 25px;
     background-color: #169FED;
     padding: 10px;
-    position: relative;
-    top: 25px;
-    left: 1750px;
 }
 
 /* Box */
 .box {
-    display: grid;
-    grid-template-rows: 1fr 100%;
-    align-items: start;
     background-color: white;
     border: 0.02em solid;
     border-color: #E1D6D6;
-    position: absolute;
-    top: 80px;
-    left: 45px;
-    height: 55vh;
-    width: 92vw;
+    padding: 20px;
 }
 
 /* BoxHeader */
 .boxHeader {
-    display: grid;
-    grid-template: 100% / 1fr 2fr;
-    justify-items: start;
-    align-items: center;
-    padding-inline-start: 40px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .boxHeader p {
@@ -230,11 +233,7 @@ i {
 }
 
 /* Form */ 
-.boxHeader form {
-    margin-block-start: 15px;
-}
-
-input[type=text] {
+input, select {
     border: 1px solid #E1D6D6;
     border-radius: 4px;
     padding: 5px 10px;
@@ -268,37 +267,64 @@ border: 2px solid #169FED;
 /* End Form */
 
 /* Buttons */
-
-.boxHeader .fa-check {
-    background-color: #7ABE81;
+.boxHeader .fas {
+    margin: 0 5px;
     padding: 7px;
     border-radius: 4px;
     cursor: pointer;
 }
 
+.boxHeader .fa-check {
+    background-color: #7ABE81;
+}
+
+.boxHeader .fa-times {
+    background-color: #DF6161;
+    padding: 7px 10px;
+}
+
+.boxHeader .fa-search {
+    padding: 0px;
+}
+
 /* End BoxHeader */
 
 /* UserList */
+.userList-wrapper {
+    margin: 20px auto;
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 50vh;
+}
+
 .userList {
-    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
 }
 
 .userList thead {
     background-color: #EBF5F9;
-    display: grid;
-    grid-template: 1fr / repeat(8, 1fr);
     padding: 10px;
+}
+
+.userList thead th {
+    top: 0;
+    z-index: 2;
+    position: sticky;
+    background-color: #EBF5F9;
 }
 
 .userList tr {
-    display: grid;
-    grid-template: 1fr / repeat(8, 1fr);
-    justify-items: center;
-    padding: 10px;
     border-bottom: 0.02em solid #E1D6D6;
 }
 
+.userList td {
+    padding: 10px;
+}
+
 .userList th {
+    padding: 10px;
     color: #70708D;
 }
 
@@ -315,3 +341,28 @@ border: 2px solid #169FED;
 /* End Box */
 
 
+/* FORMS */
+.userForm {
+    display: flex;
+    flex-flow: row;
+}
+
+.userForm .form-column {
+    padding: 20px;
+}
+
+.userForm .form-column:not(:last-child) {
+    border-right: 1px solid lightgrey;
+}
+
+.userForm label {
+    display: inline-block;
+    width: 120px;
+    font-weight: 600;
+}
+
+.userForm input, .userForm select {
+    margin: 10px;
+    width: 150px;
+}
+/* END FORMS */

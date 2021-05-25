@@ -2,17 +2,20 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from "react-router-dom";
-import Header from './components/header.js';
-import Menu from './components/menu.js';
+import Header from './components/Header.js';
+import Menu from './components/Menu.js';
 import Home from './pages/Home.jsx';
-import NewUser from './pages/newUser.jsx';
+import NewUser from './pages/NewUser.jsx';
+import UpdateUser from './pages/UpdateUser.jsx';
 
 export const AuthContext = React.createContext({
   isAuth: false,
   setAuth: (value) => { }
 })
+
 /* const authLocalStorage = window.localStorage.getItem('auth');
   let defaultStateValue = false;
   if (authLocalStorage && (JSON.parse(authLocalStorage) === true)) {
@@ -32,8 +35,12 @@ function App() {
         <Header/>
         <Menu/>
         <Switch>
-        <Route path='/' component={Home} />
-        <Route path='/new' component={NewUser} />
+          <Route exact path='/'>
+            <Redirect to="/users" />
+          </Route>
+          <Route exact path='/users' component={Home} />
+          <Route exact path='/users/new' component={NewUser} />
+          <Route exact path='/users/update/:userId' component={UpdateUser} />
         </Switch>
       </Router>
     /*</AuthContext.Provider>*/
